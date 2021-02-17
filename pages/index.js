@@ -35,7 +35,7 @@ const Index = () => {
         {data.products?.map((product) => {
           const { shipment, id } = product;
           const isLiked = !!likedProducts.find((el) => el === id);
-          const isFreeShipment = !!shipment.indexOf("Ücretsiz") > -1;
+          const isFreeShipment = shipment.indexOf("Ücretsiz") > -1;
 
           const onLike = (e) => {
             e.preventDefault();
