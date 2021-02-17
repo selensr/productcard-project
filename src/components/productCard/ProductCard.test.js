@@ -42,14 +42,28 @@ test("should render shipment", () => {
   expect(screen.getByText("Ücretsiz Kargo")).toBeInTheDocument();
 });
 
-test("should render shipment", () => {
+test("should render shipment", async () => {
   const ProductCardComponent = () => {
     const [likedProducts, setLikedProducts] = useState([]);
+    const { shipment, id } = data;
+    const isLiked = !!likedProducts.find((el) => el === id);
+    const isFreeShipment = shipment.indexOf("Ücretsiz") > -1;
+
+    const onLike = (e) => {
+      e.preventDefault();
+      if (isLiked) {
+        const newProductArr = likedProducts.filter((el) => el !== id);
+        setLikedProducts(newProductArr);
+      } else {
+        setLikedProducts([...likedProducts, id]);
+      }
+    };
     return (
       <ProductCard
         {...data}
-        likedProducts={likedProducts}
-        setLikedProducts={setLikedProducts}
+        onLike={onLike}
+        isLiked={isLiked}
+        isFreeShipment={isFreeShipment}
       />
     );
   };
@@ -57,18 +71,32 @@ test("should render shipment", () => {
   fireEvent.click(container.querySelector("span"));
   expect(container.querySelector("svg")).toHaveAttribute(
     "color",
-    expect.stringContaining("#f24141")
+    expect.stringContaining("f24141")
   );
 });
 
-test("should render shipment", () => {
+test("should render shipment", async () => {
   const ProductCardComponent = () => {
     const [likedProducts, setLikedProducts] = useState([]);
+    const { shipment, id } = data;
+    const isLiked = !!likedProducts.find((el) => el === id);
+    const isFreeShipment = shipment.indexOf("Ücretsiz") > -1;
+
+    const onLike = (e) => {
+      e.preventDefault();
+      if (isLiked) {
+        const newProductArr = likedProducts.filter((el) => el !== id);
+        setLikedProducts(newProductArr);
+      } else {
+        setLikedProducts([...likedProducts, id]);
+      }
+    };
     return (
       <ProductCard
         {...data}
-        likedProducts={likedProducts}
-        setLikedProducts={setLikedProducts}
+        onLike={onLike}
+        isLiked={isLiked}
+        isFreeShipment={isFreeShipment}
       />
     );
   };

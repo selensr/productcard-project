@@ -34,9 +34,14 @@ const ProductCard = (props) => {
             <Image src={imageUrl} alt="product" width={196} height={196} />
             <IconContainer onClick={onLike}>
               {isLiked ? (
-                <HeartFill color="#f24141" width={28} height={28} />
+                <HeartFill
+                  className="icon"
+                  color="#f24141"
+                  width={28}
+                  height={28}
+                />
               ) : (
-                <Heart color="gray" width={28} height={28} />
+                <Heart className="icon" color="gray" width={28} height={28} />
               )}
             </IconContainer>
           </ImageContainer>
