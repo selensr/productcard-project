@@ -42,7 +42,7 @@ test("should render shipment", () => {
   expect(screen.getByText("Ücretsiz Kargo")).toBeInTheDocument();
 });
 
-test("should render shipment", async () => {
+test("should like icon on click event", async () => {
   const ProductCardComponent = () => {
     const [likedProducts, setLikedProducts] = useState([]);
     const { shipment, id } = data;
@@ -75,7 +75,7 @@ test("should render shipment", async () => {
   );
 });
 
-test("should render shipment", async () => {
+test("should dislike icon on click event", async () => {
   const ProductCardComponent = () => {
     const [likedProducts, setLikedProducts] = useState([]);
     const { shipment, id } = data;
