@@ -11,7 +11,7 @@ import {
 import ProductCard from "../src/components/ProductCard/ProductCard";
 
 const Text = styled.h2`
-  font-weight: 500;
+  font-weight: 600;
   padding: 0px 10px;
 `;
 
